@@ -8,23 +8,19 @@ module.exports= function(sequelize, DataTypes) {
 		},
         
         museum: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING
             				
 		},
         
         shop: {
-			type: DataTypes.STRING,
+			type: DataTypes.STRING
 			
         },
 
         bar: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
 
-        },
-
-
-
-        
+        },       
 
 
     });
