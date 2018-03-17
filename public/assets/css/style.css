@@ -1,0 +1,94 @@
+/* WELCOME & REGISTRATION PAGE STYLINGS */
+
+#welcomeBackground {
+	background-image: url('../../../images/Welcome2.png');
+	background-size: cover;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#cornerLogo {
+	border-radius: 20px;
+	margin-left: 50px;
+	margin-top: 50px;
+	height: 120px;
+	width: 120px;
+}
+
+#tagNameBox {
+	outline-style: solid;
+	outline-width: 3px;
+	background-color: black;
+	align-content: center;
+	width: 350px;
+	opacity: 0.8;
+	color: white;
+	margin-left: 200px;
+	margin-top: -125px;
+	padding-left: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+}
+
+#tagSubtext {
+	text-align: right;
+	padding-right: 10px;
+}
+
+#welcomeInquiryBox {
+	outline-style: solid;
+	outline-width: 3px;
+	background-color: black;
+	padding-right: 5px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	margin: auto;
+	margin-top: 200px;
+	width: 500px;
+	opacity: 0.8;
+	color: white;
+	align-content: center;
+}
+
+#welcomeInquiryForm {
+	margin: auto;
+}
+
+#registrationForm {
+	outline-style: solid;
+	outline-width: 3px;
+	background-color: black;
+	padding-right: 5px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	margin: auto;
+	margin-top: 100px;
+	width: 70%;
+	opacity: 0.8;
+	color: white;
+	align-content: center;
+}
+
+#registrationText {
+	margin-top: 0px;
+	text-align: right;
+	margin-right: 80px;
+
+}
+
+#registrationTextBox {
+	margin-top: 30px;
+}
+
+#registrationSubmit {
+	text-align: center;
+}
+
+#registrationField {
+	width: 80%;
+}
