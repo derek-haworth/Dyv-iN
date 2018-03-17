@@ -1,3 +1,4 @@
+var passport = require("passport")
 var bCrypt = require("bcrypt-nodejs");
 
 console.log("I've been called..ze passport");
@@ -39,7 +40,7 @@ module.exports = function(passport, user) {
 
                 if (user) {
                     return done(null, false, {
-                        message: "Email is already taken"
+                        message: "Email is already used"
                     });
                 } else {
                     var userPassword = generateHash(password);
@@ -47,8 +48,6 @@ module.exports = function(passport, user) {
                         email: req.body.email,
                         password: userPassword,
                         username: username,
-                        firstname: req.body.firstname,
-                        lastname: req.body.lastname,
                     };
 
                     User.create(data)
