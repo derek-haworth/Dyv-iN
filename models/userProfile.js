@@ -1,34 +1,44 @@
+var bcrypt = require("bcrypt-nodejs");
+
 module.exports= function(sequelize, DataTypes) {
 
-	var userProfile = sequelize.define("userProfile", {
+	var User = sequelize.define("User", {
 
-		userName: {
+		name: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			isAlpha: true,
-			// unique: true, not sure if this is a validator - some documentation online		
+			unique: true,	
 			validate: {
-				len: [3],
-				msg: "Please use letters only. Minimum three characters."
+				len: [3]
+				
 			}			
 		},
 
-		userPassword: {
+		password: {
 			type: DataTypes.STRING, 
 			allowNull: false,
 			validate: {
-				len: [8],
-				msg: "Your password must be at least 8 characters long."
+				len: [8]
 			}			
 		},
 
-		livesIn: {
+		city: {
 			type: DataTypes.STRING,
-			allowNull: false,
 			isAlpha: true
-			// how do we validate that it's a real city? user input form can have a drop down of US cities?
 		}
 
-	});
+    });
+    
+    User.prototype.validPassword = function(password) {
+        return bcrypt.compareSync(password, this.password);
+      };
+      // Hooks are automatic methods that run during various phases of the User Model lifecycle
+      // In this case, before a User is created, we will automatically hash their password
+      User.hook("beforeCreate", function(user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+      });
+      
+      return User;
 
-
+};
