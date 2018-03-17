@@ -4,7 +4,6 @@ var router = express.Router();
 var db = require("../models");
 
 module.exports = function (passport) {
-    //Router to render the dashboard with doctors and patients datasets
     //Checks to see if the user is logged in or not.
     //Checks to see if the user is "removed" or not. If they are render's the 404 page
     router.get("/dashboard", isLoggedIn, function(req, res) {
