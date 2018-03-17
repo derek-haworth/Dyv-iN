@@ -12,19 +12,25 @@ var path = require('path');
 
 // Index Home Page Render
 router.get('/', function (req, res){
-  res.render('index');
+  res.render('index', {
+  	title: 'Home'
+  });
 });
 
 
 // Sign up Page (DOM Render)
 router.get('/signup', function (req, res){
-  res.render('signup');
+  res.render('signup', {
+  	title: 'Sign Up'
+  });
 });
 
 
 // Login Page (DOM Render)
 router.get('/login', function (req, res){
-  res.render('login');
+  res.render('login' , {
+  	title: 'Login'
+  });
 });
 
 // Export routes
