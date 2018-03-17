@@ -23,14 +23,14 @@ module.exports = function (passport) {
     //Router to create an account and runs through to check in the database to see
     //if the account is registered or hasn't been registered yet
     router.post("/signup", passport.authenticate("local-signup", {
-        successRedirect: "/dashboard",
+        successRedirect: "/city",
         failureRedirect: "/"
     }
     ));
 
     //Router to check if the user logging in has a valid account with the correct credential in the database
     router.post("/signin", passport.authenticate("local-signin", {
-        successRedirect: "/dashboard",
+        successRedirect: "/city",
         failureRedirect: "/"
     }
     ));

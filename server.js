@@ -25,8 +25,13 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 
-db.sequelize.sync({ force: false }).then(function() {
+// Import DOM controller
+var domRouter = require('./controllers/domControllers.js');
+app.use('/', domRouter);
+
+
+// db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
         console.log("I\'m listening... on port " + PORT);
     });
-});
+// });
