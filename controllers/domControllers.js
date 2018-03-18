@@ -4,7 +4,7 @@ var router = express.Router();
 // Pulls out the Models
 var models = require('../models');
 var path = require('path');
-// var passport = require("passport");
+var passport = require("passport");
 
 
 // PUBLIC ROUTES (No User Auth Needed)
