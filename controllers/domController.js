@@ -34,13 +34,34 @@ router.get("/", function(req, res) {
 });
 
 router.get("/user/:username/home", function(req, res) {
+	console.log('=====REQUEST===========');
 	console.log(req);
 	var title = "Welcome";
-	var hbsObj = {
-		title: title,
-		username: req.params.username
-	}
-	res.render("index", hbsObj);
+	db.categories.findAll({
+	  include: [db.places],
+	  order: [
+	    ["category_name", "ASC"]
+	  ]
+	})
+	.then(function(dbCategory) {
+	console.log('=========PROMISE RETURN ========');
+	console.log(dbCategory);
+	  // into the main index, updating the page
+	  var hbsObject = {
+	  	title: title,
+	    category: dbCategory
+	  };
+	  console.log('======HANDLEBAR OBJECT========');
+	  console.log(hbsObject.category);
+	  console.log(hbsObject.category);
+	  return res.render("index", hbsObject);
+	});
+	// var title = "Welcome";
+	// var hbsObj = {
+	// 	title: title,
+	// 	username: req.params.username
+	// }
+	// res.render("index", hbsObj);
 });
 
 router.get("/login", function(req, res) {
@@ -63,6 +84,10 @@ router.get("/signup", function(req, res) {
 			title: "Sign Up"
 		});
 	}
+});
+
+router.get("/admin", function(req, res) {
+	res.render("cms");
 });
 
 router.get('/logout', function(req, res){

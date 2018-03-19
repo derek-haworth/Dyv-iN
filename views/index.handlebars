@@ -1,5 +1,19 @@
-<div class="row">
-	<div class="col-xs-8 col-xs-offset-2 text-center">
-		<h1>This is the main landing page after login</h1>
+<h1>This is the main landing page after login</h1>
+{{#each category}}
+	<div class="row">
+		<div class="col-md-12">
+			<h2>{{this.category_name}}</h2>
+		</div>
 	</div>
-</div>
+	<div class="row">
+		{{#if this.places}}
+			{{#each this.places}}
+				<div class="col-md-3 text-center">
+					<span>Place Name:</span><p>{{this.name}}</p>
+					<span>Place Address:</span><p>{{this.address}}</p>
+					<span>Place Review:</span><p>{{this.review}}</p>
+				</div>
+			{{/each}}
+		{{/if}}
+	</div>
+{{/each}}

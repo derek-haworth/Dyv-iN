@@ -1,28 +1,63 @@
 // Node Dependencies
 var express = require('express');
 var router = express.Router();
-var models = require('../models'); 
+var db = require('../models'); 
 
 
 // POST/API Routes for Database changes
 // ----------------------------------------------------
 
 // Create a new User
-router.post('/create/user', function (req, res){
-  console.log(req);
-  console.log(res);
-  // Insert a new user to Users Table
-  models.Users.create(
-    {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName
-    }
-  ).then(function(){
-    // Redirect to index page
-    res.redirect('/index');
+router.post("/admin", function(req, res) {
+
+  var title = {
+    category_name: req.body.category_name
+  };
+
+  db.categories.create(title).then(function (err) {
+    res.redirect("/");
+  });
+
+  var place = {
+    name: req.body.name,
+    address: req.body.address,
+    review: req.body.review
+  }
+
+  db.places.create(place).then(function (err) {
+    res.redirect("/");
   });
 
 });
+
+// GET route for getting all of the posts
+router.get("/api/places", function(req, res) {
+    db.places.findAll({
+      include: [db.categories]
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+});
+
+router.get("/api/categories", function(req, res) {
+    db.categories.findAll({
+      // include: [db.Post]
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
+});
+
+// POST route for saving a new post
+router.post("/api/places", function(req, res) {
+  console.log("====================");
+  console.log("MJB HERE");
+  console.log("====================");
+  console.log(req.body);
+  db.places.create(req.body).then(function(dbPost) {
+    res.json(dbPost);
+  });
+});
+
 
 // Export routes
 module.exports = router;

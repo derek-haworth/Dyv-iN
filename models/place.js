@@ -2,13 +2,15 @@ module.exports= function(sequelize, DataTypes) {
 
 	var Place = sequelize.define("places", {
 		name: {
-			type: DataTypes.STRING				
+			type: DataTypes.STRING,
+            allowNull: false			
 		},
         address: {
             type: DataTypes.STRING
 		},      
         review: {
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     });
 
