@@ -81,11 +81,12 @@ router.post("/login",
 );
 
 router.post("/signup", function(req, res) {
+	console.log(req);
 	var user = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
   		username: req.body.username,
-  		password:  bcrypt.hashSync(req.body.password, saltRounds) 
+  		password: bcrypt.hashSync(req.body.password, saltRounds) 
   	};
 
 	db.users.create(user).then(function (err) {
