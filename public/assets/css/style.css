@@ -1,4 +1,6 @@
-/* WELCOME & REGISTRATION PAGE STYLINGS */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! WELCOME & REGISTRATION PAGE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 #welcomeBackground {
 	background-image: url('../../../images/Welcome2.png');
@@ -58,6 +60,11 @@
 	margin: auto;
 }
 
+#citySearchField {
+	width: 95%;
+	margin: auto;
+}
+
 #registrationForm {
 	outline-style: solid;
 	outline-width: 3px;
@@ -91,4 +98,49 @@
 
 #registrationField {
 	width: 80%;
+}
+
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! NAVBAR STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
+
+#navbar {
+	width: 102%;
+	height: 60px;
+	margin-left: -10px;
+	margin-top: -10px;
+	background-color: #bf62f6;
+}
+
+#navbarLogo {
+	height: 60px;
+	width: 60px;
+	margin-left: 20px;
+}
+
+#navbarName {
+	text-align: center;
+}
+
+#navbarNameBox {
+	margin-top: -72px;
+	color: white;
+}
+
+#navbarBox {
+	background-color: white;
+	border-radius: 40px;
+	width: 80px;
+	float: left;
+	margin-right: 10px;
+}
+
+#navbarButtonHolder {
+	float: right;
+	width: 300px;
+	margin-top: -66px;
+}
+
+#navbarBoxText {
+	text-align: center;
 }
