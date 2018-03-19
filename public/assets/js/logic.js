@@ -15,7 +15,7 @@ $(document).ready(function() {
   var updating = false;
 
   // Getting the authors, and their posts
-  getAuthors();
+  getCategories();
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
@@ -26,7 +26,7 @@ $(document).ready(function() {
       return;
     }
     // Constructing a newPost object to hand to the database
-    var newPost = {
+    var newPlace = {
       name: titleInput.val().trim(),
       address: addressInput.val().trim(),
       review: bodyInput.val().trim(),
@@ -37,35 +37,35 @@ $(document).ready(function() {
     // Otherwise run submitPost to create a whole new post
     if (updating) {
       debugger;
-      newPost.id = postId;
-      updatePost(newPost);
+      newPlace.id = postId;
+      updatePost(newPlace);
     }
     else {
-      submitPost(newPost);
+      submitPost(newPlace);
     }
   }
 
   // Submits a new post and brings user to blog page upon completion
-  function submitPost(post) {
+  function submitPost(place) {
     debugger;
-    $.post("/api/places", post, function() {
+    $.post("/api/places", place, function() {
       window.location.href = "/";
     });
   }
 
   // A function to get Authors and then render our list of Authors
-  function getAuthors() {
+  function getCategories() {
     debugger;
-    $.get("/api/categories", renderAuthorList);
+    $.get("/api/categories", renderCategoryList);
   }
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first
-  function renderAuthorList(data) {
+  function renderCategoryList(data) {
     debugger;
     
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {
-      rowsToAdd.push(createAuthorRow(data[i]));
+      rowsToAdd.push(createCategoryRow(data[i]));
     }
     authorSelect.empty();
     console.log(rowsToAdd);
@@ -75,7 +75,7 @@ $(document).ready(function() {
   }
 
   // Creates the author options in the dropdown
-  function createAuthorRow(category) {
+  function createCategoryRow(category) {
     var listOption = $("<option>");
     listOption.attr("value", category.id);
     listOption.text(category.category_name);

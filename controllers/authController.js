@@ -34,16 +34,16 @@ router.post("/admin", function(req, res) {
 router.get("/api/places", function(req, res) {
     db.places.findAll({
       include: [db.categories]
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbPlace) {
+      res.json(dbPlace);
     });
 });
 
 router.get("/api/categories", function(req, res) {
     db.categories.findAll({
-      // include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+      include: [db.places]
+    }).then(function(dbCategory) {
+      res.json(dbCategory);
     });
 });
 
@@ -53,7 +53,7 @@ router.post("/api/places", function(req, res) {
   console.log("MJB HERE");
   console.log("====================");
   console.log(req.body);
-  db.places.create(req.body).then(function(dbPost) {
+  db.places.create(req.body).then(function(dbPlace) {
     res.json(dbPost);
   });
 });
