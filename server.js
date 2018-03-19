@@ -51,8 +51,9 @@ var domRouter = require('./controllers/domController.js');
 app.use('/', domRouter);
 
 // Import Auth controller
-// var authRouter = require('./controllers/authController.js');
-// app.use(authRouter);
+
+var authRouter = require('./controllers/authController.js');
+app.use('/', authRouter);
 
 //Sync models
 db.sequelize.sync({ force: false }).then(function() {

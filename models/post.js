@@ -19,6 +19,13 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
+
+    });
+    Post.belongsTo(models.places, {
+      foreignKey: {
+        allowNull: false
+      }
+
     });
   };
 
