@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="adminForm" action="admin" method="POST">
+      <div class="form-group">
+        <label for="category_name">New Category</label>
+        <input type="text" class="form-control" id="category_name" name="category_name">
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+
+
+  <div class="col-md-12">
+    <form id="cms">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input placeholder="Post Title" type="text" class="form-control" id="name">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address">
+        <label for="body">Review</label>
+        <textarea placeholder="Review" class="form-control" rows="10" id="body"></textarea>
+        <div class="form-group">
+          <label for="category">Select Category:</label>
+          <select class="form-control" id="category"></select>
+        </div>
+        <button type="submit" class="btn btn-success submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,42 +1,31 @@
 module.exports= function(sequelize, DataTypes) {
 
-	var Place = sequelize.define("Place", {
-
+	var Place = sequelize.define("places", {
 		name: {
-			type: DataTypes.STRING	
-						
+			type: DataTypes.STRING,
+            allowNull: false			
 		},
-        
         address: {
             type: DataTypes.STRING
-            				
-		},
-        
-        category: {
-			type: DataTypes.STRING
-			
-        },
-
-        comparedTo: {
-            type: DataTypes.STRING
-
-        },  
-        
+		},      
         review: {
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: false
         }
-
-
     });
 
     Place.associate = function(models) {
-        
-        Place.hasOne(models.Category, {
+      	Place.belongsTo(models.categories, {
+        	foreignKey: {
+            	allowNull: false
+            }
+      	});
+        Place.hasMany(models.posts, {
             foreignKey: {
                 allowNull: false
-              }
+            }
         });
-      };
+    };
 
     return Place;
 

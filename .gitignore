@@ -57,5 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
-requirements/
+_project_assets/
 config/config.json
