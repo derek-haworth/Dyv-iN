@@ -1,13 +1,16 @@
 // Node Dependencies
 var express = require('express');
 var router = express.Router();
+
 var db = require('../models'); 
+
 
 
 // POST/API Routes for Database changes
 // ----------------------------------------------------
 
 // Create a new User
+
 router.post("/admin", function(req, res) {
 
   var title = {
@@ -57,7 +60,6 @@ router.post("/api/places", function(req, res) {
     res.json(dbPost);
   });
 });
-
 
 // Export routes
 module.exports = router;

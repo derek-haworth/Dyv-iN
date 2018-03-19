@@ -12,7 +12,9 @@ module.exports= function(sequelize, DataTypes) {
     Category.associate = function(models) {
         // Associating Category with Places
         // When an Category is deleted, also delete any associated Places
+
         Category.hasMany(models.places, {
+
           onDelete: "cascade"
         });
     };
