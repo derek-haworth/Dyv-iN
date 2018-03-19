@@ -6,16 +6,13 @@ module.exports= function(sequelize, DataTypes) {
 	    	validation: {
 	    		len: [1]
 	    	}
-	    },
-	    short_description: {
-	    	type: DataTypes.STRING
-	    },
+	    }
     });
 
     Category.associate = function(models) {
         // Associating Category with Places
         // When an Category is deleted, also delete any associated Places
-        Category.belongsTo(models.places, {
+        Category.hasMany(models.places, {
           onDelete: "cascade"
         });
     };

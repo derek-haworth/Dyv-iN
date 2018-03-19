@@ -13,11 +13,16 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     Place.associate = function(models) {
-      	Place.hasOne(models.categories, {
+      	Place.belongsTo(models.categories, {
         	foreignKey: {
             	allowNull: false
             }
       	});
+        Place.hasMany(models.posts, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
     };
 
     return Place;
