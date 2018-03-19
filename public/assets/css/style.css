@@ -1,7 +1,9 @@
-/* WELCOME & REGISTRATION PAGE STYLINGS */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! WELCOME & REGISTRATION PAGE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 #welcomeBackground {
-	background-image: url('../../../images/Welcome2.png');
+	background-image: url('../../../public/assets/images/Welcome4.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -18,29 +20,32 @@
 }
 
 #tagNameBox {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	align-content: center;
 	width: 350px;
+	height: 120px;
 	opacity: 0.8;
 	color: white;
 	margin-left: 200px;
 	margin-top: -125px;
 	padding-left: 20px;
 	padding-top: 3px;
-	padding-bottom: 3px;
 	padding-right: 10px;
+}
+
+#tagName {
+	font-family: 'Ubuntu', sans-serif, 'regular';
 }
 
 #tagSubtext {
 	text-align: right;
 	padding-right: 10px;
+	font-family: 'Ubuntu', sans-serif, 'regular italic';
 }
 
 #welcomeInquiryBox {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	padding-right: 5px;
 	padding-left: 20px;
@@ -58,9 +63,13 @@
 	margin: auto;
 }
 
+#citySearchField {
+	width: 95%;
+	margin: auto;
+}
+
 #registrationForm {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	padding-right: 5px;
 	padding-left: 20px;
@@ -93,10 +102,72 @@
 	width: 80%;
 }
 
-/* footer */
+
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! NAVBAR STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
+
+#navbar {
+	width: 102%;
+	height: 60px;
+	margin-left: -10px;
+	margin-top: -10px;
+	background-color: #bf62f6;
+}
+
+#navbarLogo {
+	height: 60px;
+	width: 60px;
+	margin-left: 20px;
+}
+
+#navbarName {
+	text-align: center;
+	font-family: 'Concert One', cursive;
+	color: white;
+}
+
+#navbarNameBox {
+	margin-top: -72px;
+}
+
+#navbarBox {
+	background-color: white;
+	border-radius: 40px;
+	width: 80px;
+	float: left;
+	margin-right: 10px;
+}
+
+#navbarButtonHolder {
+	float: right;
+	width: 300px;
+	margin-top: -66px;
+}
+
+#navbarBoxText {
+	text-align: center;
+	font-family: 'Shrikhand', cursive;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!! */
+/* ! PROFILE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!! */
+
+#profileReviewBox {
+	
+}
+
+
+
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! FOOTER STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
 
 footer {
 	position: absolute;
+	left: 0;
 	bottom: 0;
 	background: #CCC;
 	padding: 40px;
@@ -104,8 +175,13 @@ footer {
 	width: 100%;
 }
 
-/* login page */
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! LOG IN STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
+
+
 .logInForm {
 	width: 60%;
 	margin: 0 auto;
+
 }
