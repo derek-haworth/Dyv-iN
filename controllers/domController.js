@@ -12,8 +12,16 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/landing", function(req, res) {
 	if (req.isAuthenticated()) {
+		console.log('===================')
+		console.log('LOGGED IN')
+		console.log('===================')
+
 		res.redirect("/user/" + req.user.username + "/home");
 	} else {
+		console.log('===================')
+		console.log('NOT LOGGED IN')
+		console.log('===================')
+	
 		var hbsObj = {
 			title: "Landing"
 		};
@@ -26,17 +34,16 @@ router.get("/", function(req, res) {
 		res.redirect("/user/" + req.user.username + "/home");
 	} else {
 		var hbsObj = {
-			title: "Home",
-			login: true
+			title: "Home"
 		};
 		res.render("landing", hbsObj);
 	}
 });
 
 router.get("/user/:username/home", function(req, res) {
-	console.log('=====REQUEST===========');
-	console.log(req);
+
 	var title = "Welcome";
+
 	db.categories.findAll({
 	  include: [db.places],
 	  order: [
@@ -44,37 +51,54 @@ router.get("/user/:username/home", function(req, res) {
 	  ]
 	})
 	.then(function(dbCategory) {
-	console.log('=========PROMISE RETURN ========');
 	console.log(dbCategory);
 	  // into the main index, updating the page
 	  var hbsObject = {
+	  	login: true,
 	  	title: title,
 	    category: dbCategory
 	  };
 	  console.log('======HANDLEBAR OBJECT========');
 	  console.log(hbsObject.category);
-	  console.log(hbsObject.category);
 	  return res.render("index", hbsObject);
+
 	});
-	// var title = "Welcome";
-	// var hbsObj = {
-	// 	title: title,
-	// 	username: req.params.username
-	// }
-	// res.render("index", hbsObj);
 });
 
-router.get("/login", function(req, res) {
-	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
-	} else {
-		var hbsObj = {
-			title: "Login",
-			login: true
-		};
-		res.render("login", hbsObj);
-	}
+router.get("/user/:username/profile", function(req, res) {
+	var username = req.user.username;
+	var title = "Profile";
+	db.users.findOne({
+		where: {
+			username: username
+		},
+	  	include: [db.posts]
+	})
+	.then(function(db) {
+	console.log(db);
+	  // into the main index, updating the page
+	  var hbsObject = {
+	  	title: title,
+	    db: db
+	  };
+	  console.log('======HANDLEBAR OBJECT========');
+	  console.log(hbsObject.db);
+	  return res.render("profile", hbsObject);
+	  
+	});
 });
+
+// router.get("/login", function(req, res) {
+// 	if (req.isAuthenticated()) {
+// 		res.redirect("/user/" + req.user.username + "/home");
+// 	} else {
+// 		var hbsObj = {
+// 			title: "Login",
+// 			login: true
+// 		};
+// 		res.render("login", hbsObj);
+// 	}
+// });
 
 router.get("/signup", function(req, res) {
 	if (req.isAuthenticated()) {
@@ -101,7 +125,7 @@ router.get('/logout', function(req, res){
 router.post("/login", 
 	passport.authenticate('local', { 
 		successRedirect: '/landing',
-        failureRedirect: '/login',
+        failureRedirect: '/landing',
     })
 );
 
