@@ -31,7 +31,17 @@ router.post("/admin", function(req, res) {
     res.redirect("/");
   });
 
+  var post = {
+    title: req.body.title,
+    body: req.body.body
+  };
+
+  db.posts.create(post).then(function (err) {
+    res.redirect("/");
+  });
+
 });
+
 
 // GET route for getting all of the posts
 router.get("/api/places", function(req, res) {
@@ -50,6 +60,15 @@ router.get("/api/categories", function(req, res) {
     });
 });
 
+router.get("/api/posts", function(req, res) {
+  db.posts.findAll({
+    include: [db.places],
+    include: [db.users]
+  }).then(function (dbPost) {
+    res.json(dbPost);
+  });
+});
+
 // POST route for saving a new post
 router.post("/api/places", function(req, res) {
   console.log("====================");
@@ -57,7 +76,13 @@ router.post("/api/places", function(req, res) {
   console.log("====================");
   console.log(req.body);
   db.places.create(req.body).then(function(dbPlace) {
-    res.json(dbPost);
+    res.json(dbPlace);
+  });
+});
+
+router.post("/api/posts", function(req, res) {
+  db.posts.create(req.body).then(function(dbPosts) {
+    res.json(dbPosts);
   });
 });
 

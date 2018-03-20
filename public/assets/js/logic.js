@@ -58,6 +58,7 @@ $(document).ready(function() {
     debugger;
     $.get("/api/categories", renderCategoryList);
   }
+  
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first
   function renderCategoryList(data) {
