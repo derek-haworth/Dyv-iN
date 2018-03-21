@@ -7,8 +7,8 @@ var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require("method-override");
 var cookieParser = require("cookie-parser");
+var logger = require("morgan");
 require('./config/passport');
-
 
 // Sets up the Express App
 // =============================================================
@@ -19,41 +19,54 @@ var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+
 app.use(methodOverride('_method'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Run Morgan for logging
+app.use(logger("dev"));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // required for passport
 app.use(cookieParser());
 app.use(session({
-  secret: 'mysecret'
+  secret: 'mysecret',
+  resave: false,
+  saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ 
-    defaultLayout: "main" 
+    defaultLayout: "main",
+    helpers: {
+    	eachUpTo: function(ary, max, options) {
+		    if(!ary || ary.length == 0)
+		        return options.inverse(this);
+
+		    var result = [ ];
+		    for(var i = 0; i < max && i < ary.length; ++i)
+		        result.push(options.fn(ary[i]));
+		    return result.join('');
+		}
+    }
   })
 );
 app.set("view engine", "handlebars");
 
 
-// Global user var
-app.use(function (req, res, next){
-  res.locals.user = req.user || null;
-  next();
-})
+// Routes
+// ========================================
+var domRouter = require('./controllers/dom-controller.js');
+var authRouter = require('./controllers/auth-controller.js');
+var profileRouter = require('./controllers/profile-controller.js');
 
-// Import DOM controller
-var domRouter = require('./controllers/domController.js');
 app.use('/', domRouter);
-
-// Import Auth controller
-
-var authRouter = require('./controllers/authController.js');
 app.use('/', authRouter);
+app.use('/', profileRouter);
 
 //Sync models
 db.sequelize.sync({ force: false }).then(function() {

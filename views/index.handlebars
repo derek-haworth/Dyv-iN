@@ -1,16 +1,3 @@
 <h1>This is the main landing page after login</h1>
-{{#each category}}
-	<div class="row">
-		<div class="col-md-12">
-			<h2>{{this.category_name}}</h2>
-		</div>
-	</div>
-	<div class="row">
-		{{#if this.places}}
-			{{#each this.places}}
-				{{> partials/category}}
-			{{/each}}
-		{{/if}}
-	</div>
-{{/each}}
+
 

@@ -1,5 +1,43 @@
-<div class="row">
-	<div class="col-xs-8 col-xs-offset-2 text-center"> 
-		<h1>Main Splash page</h1>
+
+	{{!-- If login error, display here --}}
+	<div class="row">
+		{{#if loginErrors}}
+			<div class="col-md-12">
+	    		<div class="alert alert-danger text-center">{{loginErrors}}</div>
+	    	<div>
+		{{/if}}
 	</div>
-</div>
+	
+	{{!-- City Search --}}
+	<div class="row">
+		<div class="col-md-12">
+			<div id="welcomeInquiryBox">
+				<h2 id="welcomeInquiry">Where are we looking into today...</h2>
+				<form>
+					<br>
+		 			<input id="citySearchField" type="text" name="citySearch" value="">
+		  			<br><br>
+		  			<div id="registrationSubmit"><input type="submit" value="Submit"></div>
+				</form> 
+			</div>
+		</div>
+	</div>
+
+	{{!-- Categories Section --}}
+	{{#each category}}
+		<div class="row">
+			<div class="col-md-12">
+				<h2>{{this.category_name}}</h2>
+			</div>
+		</div>
+		<div class="row">
+			{{#if this.places}}
+				{{#eachUpTo this.places 4}}
+					<div class="col-md-3 text-center">
+						{{> post}}
+					</div>
+				{{/eachUpTo}}
+			{{/if}}
+		</div>
+	{{/each}}
+

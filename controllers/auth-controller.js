@@ -4,10 +4,14 @@ var router = express.Router();
 
 var db = require('../models'); 
 
-
-
-// POST/API Routes for Database changes
 // ----------------------------------------------------
+//  POST/API Routes for Database changes
+// ----------------------------------------------------
+
+// This will be for approving new Categories
+router.get("/admin", function(req, res) {
+  res.render("cms");
+});
 
 // Create a new User
 
@@ -42,6 +46,13 @@ router.get("/api/places", function(req, res) {
     });
 });
 
+// POST route for saving a new post
+router.post("/api/places", function(req, res) {
+  db.places.create(req.body).then(function(dbPlace) {
+    res.json(dbPlace);
+  });
+});
+
 router.get("/api/categories", function(req, res) {
     db.categories.findAll({
       include: [db.places]
@@ -50,14 +61,26 @@ router.get("/api/categories", function(req, res) {
     });
 });
 
-// POST route for saving a new post
-router.post("/api/places", function(req, res) {
-  console.log("====================");
-  console.log("MJB HERE");
-  console.log("====================");
-  console.log(req.body);
-  db.places.create(req.body).then(function(dbPlace) {
+router.get("/api/posts", function(req, res) {
+  db.posts.findAll({
+    include: [db.places, db.users]
+  }).then(function (dbPost) {
     res.json(dbPost);
+  });
+});
+
+
+router.post("/api/posts", function(req, res) {
+  var userId = req.user.dataValues.id;
+
+  var obj = {
+    userId: userId,
+    title: req.body.title,
+    body: req.body.body,
+    placeId: req.body.placeId
+  }
+  db.posts.create(obj).then(function(dbPosts) {
+    res.json(dbPosts);
   });
 });
 
