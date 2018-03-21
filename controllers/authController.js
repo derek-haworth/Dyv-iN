@@ -49,12 +49,8 @@ router.get("/api/categories", function(req, res) {
 
 // POST route for saving a new post
 router.post("/api/places", function(req, res) {
-  console.log("====================");
-  console.log("MJB HERE");
-  console.log("====================");
-  console.log(req.body);
   db.places.create(req.body).then(function(dbPlace) {
-    res.json(dbPost);
+    res.json(dbPlace);
   });
 });
 

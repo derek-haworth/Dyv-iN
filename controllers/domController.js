@@ -9,26 +9,27 @@ var saltRounds = 10;
 
 // Get Routes
 // ----------------------------------------------------
-router.get("/landing", function(req, res) {
-	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
-	} else {
-		var hbsObj = {
-			title: "Landing",
-			loginErrors: req.session.messages
-		};
-		res.render("landing", hbsObj);
-	}
-});
 
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
 		res.redirect("/user/" + req.user.username + "/home");
 	} else {
-		var hbsObj = {
-			title: "Home"
-		};
-		res.render("landing", hbsObj);
+		db.categories.findAll({
+		  include: [db.places],
+		  order: [
+		    ["category_name", "ASC"]
+		  ]
+		})
+		.then(function(dbCategory) {
+		  // into the main index, updating the page
+		  var hbsObject = {
+		  	// login: true,
+		  	title: "Welcome",
+		  	loginErrors: req.session.messages,
+		    category: dbCategory
+		  };
+		  return res.render("landing", hbsObject);
+		});
 	}
 });
 
@@ -117,8 +118,8 @@ router.get('/logout', function(req, res){
 // ----------------------------------------------------
 router.post("/login", 
 	passport.authenticate('local', { 
-		successRedirect: '/landing',
-        failureRedirect: '/landing',
+		successRedirect: '/',
+        failureRedirect: '/',
         failureMessage: 'Invalid username or password'
     })
 );
@@ -131,11 +132,13 @@ router.post("/signup", function(req, res) {
   		password: bcrypt.hashSync(req.body.password, saltRounds) 
   	};
 
+  	// if a new user created, redirect them to login page NOT modal
 	db.users.create(user)
 	.then(function (err) {
 		req.session.valid = true;
 		res.redirect("/login");
 	})
+	// Unsuccesful signup will render the signup page
 	.catch(function(err) {
 		//using express sessions to pass along error message 
 		req.session.message = err.errors[0].message;
