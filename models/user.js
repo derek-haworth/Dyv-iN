@@ -41,6 +41,13 @@ module.exports= function(sequelize, DataTypes) {
     User.hasMany(models.posts, {
       onDelete: 'CASCADE'
     });
+
+    // User.belongsTo(models.places, {
+    //   foreignKey: {
+    //     allowNull: false
+      
+    //   }
+    // })
   };
   return User;
 };
