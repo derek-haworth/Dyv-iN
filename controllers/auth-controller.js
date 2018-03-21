@@ -60,6 +60,28 @@ router.get("/api/categories", function(req, res) {
     });
 });
 
+router.get("/api/posts", function(req, res) {
+  db.posts.findAll({
+    include: [db.places, db.users]
+  }).then(function (dbPost) {
+    res.json(dbPost);
+  });
+});
+
+router.post("/api/posts", function(req, res) {
+  var userId = req.user.dataValues.id;
+
+  var obj = {
+    userId: userId,
+    title: req.body.title,
+    body: req.body.body,
+    placeId: req.body.placeId
+  }
+  db.posts.create(obj).then(function(dbPosts) {
+    res.json(dbPosts);
+  });
+});
+
 
 // Export routes
 module.exports = router;

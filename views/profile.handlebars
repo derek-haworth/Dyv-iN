@@ -20,7 +20,9 @@
 </div>
 
 
-<div class="col-md-6">
+{{!-- Leave commented out - Derek H --}}
+
+{{!-- <div class="col-md-6">
   <form id="cms">
     <div class="form-group">
       <label for="name">Name</label>
@@ -37,3 +39,23 @@
     </div>
   </form>
 </div>
+ --}}
+
+
+{{!-- Fauna, John - Use this form to add posts --}}
+
+<div class="col-md-12">
+    <form id="posts">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input placeholder="Post Title" type="text" class="form-control" id="title">
+        <label for="body">Body</label>
+        <textarea placeholder="Body" class="form-control" rows="10" id="postBody"></textarea>
+        <div class="form-group">
+          <label for="category">Select Place:</label>
+          <select class="form-control" id="place"></select>
+        </div>
+        <button type="submit" class="btn btn-success submit">Submit</button>
+      </div>
+    </form>
+  </div>
