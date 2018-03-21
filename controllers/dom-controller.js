@@ -7,9 +7,10 @@ var passport = require("passport");
 
 var saltRounds = 10;
 
-// Get Routes
 // ----------------------------------------------------
-
+// GET ROUTES
+// LOGIN, LOGOUT, & SIGN-UP ROUTES
+// ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
 		res.redirect("/user/" + req.user.username + "/home");
@@ -31,52 +32,6 @@ router.get("/", function(req, res) {
 		  return res.render("landing", hbsObject);
 		});
 	}
-});
-
-router.get("/user/:username/home", function(req, res) {
-
-	var title = "Welcome";
-
-	db.categories.findAll({
-	  include: [db.places],
-	  order: [
-	    ["category_name", "ASC"]
-	  ]
-	})
-	.then(function(dbCategory) {
-	console.log(dbCategory);
-	  // into the main index, updating the page
-	  var hbsObject = {
-	  	login: true,
-	  	title: title,
-	    category: dbCategory
-	  };
-	  console.log(hbsObject.category);
-	  return res.render("index", hbsObject);
-
-	});
-});
-
-router.get("/user/:username/profile", function(req, res) {
-	var username = req.user.username;
-	var title = "Profile";
-	db.users.findOne({
-		where: {
-			username: username
-		},
-	  	include: [db.posts]
-	})
-	.then(function(db) {
-	console.log(db);
-	  // into the main index, updating the page
-	  var hbsObject = {
-	  	title: title,
-	    db: db
-	  };
-	  console.log(hbsObject.db);
-	  return res.render("profile", hbsObject);
-	  
-	});
 });
 
 router.get("/login", function(req, res) {
@@ -104,18 +59,17 @@ router.get("/signup", function(req, res) {
 	}
 });
 
-router.get("/admin", function(req, res) {
-	res.render("cms");
-});
-
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
 
 
-// Post Routes
 // ----------------------------------------------------
+// POST ROUTES
+// LOGIN & SIGN-UP ROUTES
+// ----------------------------------------------------
+
 router.post("/login", 
 	passport.authenticate('local', { 
 		successRedirect: '/',

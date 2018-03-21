@@ -4,8 +4,14 @@ var router = express.Router();
 var db = require('../models'); 
 
 
-// POST/API Routes for Database changes
 // ----------------------------------------------------
+//  POST/API Routes for Database changes
+// ----------------------------------------------------
+
+// This will be for approving new Categories
+router.get("/admin", function(req, res) {
+  res.render("cms");
+});
 
 // Create a new User
 router.post("/admin", function(req, res) {
