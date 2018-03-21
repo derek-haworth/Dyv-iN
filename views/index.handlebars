@@ -8,11 +8,7 @@
 	<div class="row">
 		{{#if this.places}}
 			{{#each this.places}}
-				<div class="col-md-3 text-center">
-					<span>Place Name:</span><p>{{this.name}}</p>
-					<span>Place Address:</span><p>{{this.address}}</p>
-					<span>Place Review:</span><p>{{this.review}}</p>
-				</div>
+				{{> partials/category}}
 			{{/each}}
 		{{/if}}
 	</div>
