@@ -7,23 +7,15 @@ var passport = require("passport");
 
 var saltRounds = 10;
 
-
 // Get Routes
 // ----------------------------------------------------
 router.get("/landing", function(req, res) {
 	if (req.isAuthenticated()) {
-		console.log('===================')
-		console.log('LOGGED IN')
-		console.log('===================')
-
 		res.redirect("/user/" + req.user.username + "/home");
 	} else {
-		console.log('===================')
-		console.log('NOT LOGGED IN')
-		console.log('===================')
-	
 		var hbsObj = {
-			title: "Landing"
+			title: "Landing",
+			loginErrors: req.session.messages
 		};
 		res.render("landing", hbsObj);
 	}
@@ -58,7 +50,6 @@ router.get("/user/:username/home", function(req, res) {
 	  	title: title,
 	    category: dbCategory
 	  };
-	  console.log('======HANDLEBAR OBJECT========');
 	  console.log(hbsObject.category);
 	  return res.render("index", hbsObject);
 
@@ -81,32 +72,34 @@ router.get("/user/:username/profile", function(req, res) {
 	  	title: title,
 	    db: db
 	  };
-	  console.log('======HANDLEBAR OBJECT========');
 	  console.log(hbsObject.db);
 	  return res.render("profile", hbsObject);
 	  
 	});
 });
 
-// router.get("/login", function(req, res) {
-// 	if (req.isAuthenticated()) {
-// 		res.redirect("/user/" + req.user.username + "/home");
-// 	} else {
-// 		var hbsObj = {
-// 			title: "Login",
-// 			login: true
-// 		};
-// 		res.render("login", hbsObj);
-// 	}
-// });
+router.get("/login", function(req, res) {
+	if (req.isAuthenticated()) {
+		res.redirect("/user/" + req.user.username + "/home");
+	} else {
+		var hbsObj = {
+			title: "Login",
+			login: true
+		};
+		res.render("login", hbsObj);
+	}
+});
 
 router.get("/signup", function(req, res) {
 	if (req.isAuthenticated()) {
 		res.redirect("/login")
 	} else {
-		res.render("signup", {
-			title: "Sign Up"
-		});
+		var message = req.session.message;
+		var hbsObj = {
+			title: "Sign Up",
+			errorMessage: message
+		}
+		res.render("signup", hbsObj);
 	}
 });
 
@@ -126,11 +119,11 @@ router.post("/login",
 	passport.authenticate('local', { 
 		successRedirect: '/landing',
         failureRedirect: '/landing',
+        failureMessage: 'Invalid username or password'
     })
 );
 
 router.post("/signup", function(req, res) {
-	console.log(req);
 	var user = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -138,8 +131,15 @@ router.post("/signup", function(req, res) {
   		password: bcrypt.hashSync(req.body.password, saltRounds) 
   	};
 
-	db.users.create(user).then(function (err) {
+	db.users.create(user)
+	.then(function (err) {
+		req.session.valid = true;
 		res.redirect("/login");
+	})
+	.catch(function(err) {
+		//using express sessions to pass along error message 
+		req.session.message = err.errors[0].message;
+		res.redirect("/signup");
 	});
 });
 
