@@ -42,12 +42,12 @@ module.exports= function(sequelize, DataTypes) {
       onDelete: 'CASCADE'
     });
 
-    // User.belongsTo(models.places, {
-    //   foreignKey: {
-    //     allowNull: false
+    User.belongsTo(models.places, {
+      foreignKey: {
+        allowNull: false
       
-    //   }
-    // })
+      }
+    })
   };
   return User;
 };
