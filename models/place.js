@@ -31,6 +31,12 @@ module.exports= function(sequelize, DataTypes) {
             }
         });
 
+        Place.hasMany(models.users, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+
     };
 
     return Place;
