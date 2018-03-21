@@ -46,7 +46,7 @@ router.post("/admin", function(req, res) {
 // GET route for getting all of the posts
 router.get("/api/places", function(req, res) {
     db.places.findAll({
-      include: [db.categories]
+      include: [db.categories, db.posts]
     }).then(function(dbPlace) {
       res.json(dbPlace);
     });
@@ -62,8 +62,7 @@ router.get("/api/categories", function(req, res) {
 
 router.get("/api/posts", function(req, res) {
   db.posts.findAll({
-    include: [db.places],
-    include: [db.users]
+    include: [db.places, db.users]
   }).then(function (dbPost) {
     res.json(dbPost);
   });
@@ -81,7 +80,15 @@ router.post("/api/places", function(req, res) {
 });
 
 router.post("/api/posts", function(req, res) {
-  db.posts.create(req.body).then(function(dbPosts) {
+  var userId = req.user.dataValues.id;
+
+  var obj = {
+    userId: userId,
+    title: req.body.title,
+    body: req.body.body,
+    placeId: req.body.placeId
+  }
+  db.posts.create(obj).then(function(dbPosts) {
     res.json(dbPosts);
   });
 });

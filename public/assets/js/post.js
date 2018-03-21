@@ -27,7 +27,9 @@ $(document).ready(function() {
       // Constructing a newPost object to hand to the database
       var newPost = {
         title: titleInput.val().trim(),
-        body: bodyInput.val().trim()
+        body: bodyInput.val().trim(),
+        placeId: placeSelect.val()
+        // userId: 1
       };
   
       // If we're updating a post run updatePost to update a post
@@ -74,6 +76,7 @@ $(document).ready(function() {
   
     // Creates the author options in the dropdown
     function createPlaceRow(place) {
+      debugger;
       var listOption = $("<option>");
       listOption.attr("value", place.id);
       listOption.text(place.name);
