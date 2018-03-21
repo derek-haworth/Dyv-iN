@@ -32,11 +32,11 @@
 		</div>
 		<div class="row">
 			{{#if this.places}}
-				{{#each this.places}}
+				{{#eachUpTo this.places 4}}
 					<div class="col-md-3 text-center">
 						{{> post}}
 					</div>
-				{{/each}}
+				{{/eachUpTo}}
 			{{/if}}
 		</div>
 	{{/each}}

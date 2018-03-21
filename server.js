@@ -10,7 +10,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require('./config/passport');
 
-
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -42,7 +41,18 @@ app.use(passport.session());
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ 
-    defaultLayout: "main" 
+    defaultLayout: "main",
+    helpers: {
+    	eachUpTo: function(ary, max, options) {
+		    if(!ary || ary.length == 0)
+		        return options.inverse(this);
+
+		    var result = [ ];
+		    for(var i = 0; i < max && i < ary.length; ++i)
+		        result.push(options.fn(ary[i]));
+		    return result.join('');
+		}
+    }
   })
 );
 app.set("view engine", "handlebars");
@@ -50,11 +60,13 @@ app.set("view engine", "handlebars");
 
 // Routes
 // ========================================
-var domRouter = require('./controllers/domController.js');
-var authRouter = require('./controllers/authController.js');
+var domRouter = require('./controllers/dom-controller.js');
+var authRouter = require('./controllers/auth-controller.js');
+var profileRouter = require('./controllers/profile-controller.js');
 
 app.use('/', domRouter);
 app.use('/', authRouter);
+app.use('/', profileRouter);
 
 //Sync models
 db.sequelize.sync({ force: false }).then(function() {
