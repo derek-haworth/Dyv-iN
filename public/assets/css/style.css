@@ -63,6 +63,10 @@
 	margin: auto;
 }
 
+#welcomeInquiry {
+	font-family: 'Ubuntu', sans-serif, 'regular italic'
+}
+
 #citySearchField {
 	width: 95%;
 	margin: auto;
@@ -187,3 +191,20 @@ footer {
 	margin: 0 auto;
 
 }
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! HOMEPAGE BOOTSTRAP STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.img-thumbnail {
+	width: 250px;
+	height: 250px;
+}
+
+
+
+
+
+
+
+
