@@ -39,19 +39,19 @@ router.get("/api/places", function(req, res) {
     });
 });
 
+// POST route for saving a new post
+router.post("/api/places", function(req, res) {
+  db.places.create(req.body).then(function(dbPlace) {
+    res.json(dbPlace);
+  });
+});
+
 router.get("/api/categories", function(req, res) {
     db.categories.findAll({
       include: [db.places]
     }).then(function(dbCategory) {
       res.json(dbCategory);
     });
-});
-
-// POST route for saving a new post
-router.post("/api/places", function(req, res) {
-  db.places.create(req.body).then(function(dbPlace) {
-    res.json(dbPlace);
-  });
 });
 
 
