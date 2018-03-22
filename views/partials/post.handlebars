@@ -1,10 +1,11 @@
-
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{this.name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{this.address}}</h6>
-    {{!-- <p class="card-text">{{this.review}}</p> --}}
-    <a href="#" class="card-link">Restaurant</a>
-    <a href="#" class="card-link">Review</a>
-  </div>
-</div>
+{{#if this.viewable}}
+	<div class="card">
+	  <div class="card-body">
+	    <h5 class="card-title">{{this.name}}</h5>
+	    <h6 class="card-subtitle mb-2 text-muted">{{this.address}}</h6>
+	    {{!-- <p class="card-text">{{this.review}}</p> --}}
+	    <a href="#" class="card-link">Restaurant</a>
+	    <a href="#" class="card-link">Review</a>
+	  </div>
+	</div>
+{{/if}}

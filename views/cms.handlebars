@@ -1,5 +1,4 @@
 <div class="row">
-  <div class="col-md-12">
     <form class="adminForm" action="admin" method="POST">
       <div class="form-group">
         <label for="category_name">New Category</label>
@@ -7,24 +6,52 @@
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
     </form>
-  </div>
 
 
-  <div class="col-md-12">
-    <form id="cms">
+    <form id="cms-place">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input placeholder="Post Title" type="text" class="form-control" id="name">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address">
-        <label for="body">Review</label>
-        <textarea placeholder="Review" class="form-control" rows="10" id="body"></textarea>
+        <label for="placeName">Name</label>
+        <input placeholder="Post Title" type="text" class="form-control" id="placeName">
+        <label for="placeAddress">Address</label>
+        <input type="text" class="form-control" id="placeAddress">
         <div class="form-group">
-          <label for="category">Select Category:</label>
-          <select class="form-control" id="category"></select>
+          <label for="categoryId">Select Category:</label>
+          <select class="form-control" id="categoryId"></select>
+        </div>
+        <div class="form-group">
+          <label for="cityId">Select City:</label>
+          <select class="form-control" id="cityId"></select>
         </div>
         <button type="submit" class="btn btn-success submit">Submit</button>
       </div>
     </form>
-  </div>
+
+
+    <form id="cms-city" action="admin" method="POST">
+      <div class="form-group">
+        <label for="cityName">Add City</label>
+        <input placeholder="City Name" type="text" class="form-control" id="cityName" name="cityName">
+      </div>
+      <button type="submit" class="btn btn-success submit">Submit</button>
+    </form>
+
+   
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="menu-mid">
+          <ul class="menu-block">
+            {{#each places}}
+              <div class="menu-item">
+                {{#unless this.viewable}}
+                  <p class="place">{{this.name}}</p>
+                  <p class="burger">{{this.address}}</p>
+                  <form method="POST" action="/places/update?_method=PUT" class="button-size">
+                    <p class="customer-name"><input type="hidden" name="placeId" value="{{this.id}}"></p>
+                    <button class="btn btn-warning devour">Approve</button>
+                  </form>
+                {{/unless}}
+              </div>
+            {{/each}}
+          </ul>
+        </div>
 </div>
+  
