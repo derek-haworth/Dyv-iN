@@ -4,32 +4,50 @@ module.exports= function(sequelize, DataTypes) {
 	var User = sequelize.define("users", {
 		firstName: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validation: {
-        len: [1]
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'First name is required'
+        }
       }
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validation: {
-        len: [1]
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Last name is required'
+        }
       }
     },
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: true,	
-			validation: {
-				len: [1]
-			}			
+      notEmpty: {
+        msg: 'Username is required'
+      },
+			unique: {
+        args: true,
+        msg: 'Sorry, that username is taken.',
+        fields: [sequelize.fn('lower', sequelize.col('username'))]
+      },	
+			validate: {
+        max: {
+          args: [15],
+          msg: 'The username you entered is invalid or more than 15 characters.'
+        }   
+      }		
 		},
 		password: {
 			type: DataTypes.STRING, 
 			allowNull: false,
-			validation: {
-				len: [8]
-			}			
+			validate: {
+        min: {
+          // may be overridden by bcrypt 
+          args: [8],
+          msg: 'Minimum 8 characters required in last name'
+        }   
+      }   		
 		}
   });
   

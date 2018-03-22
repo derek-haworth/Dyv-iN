@@ -34,6 +34,7 @@ router.get("/", function(req, res) {
 });
 
 router.get("/user/:username/home", function(req, res) {
+
 	console.log('=====REQUEST===========');
 	console.log(req);
 	var title = "Welcome";
@@ -89,6 +90,7 @@ router.get("/signup", function(req, res) {
 router.get("/admin", function(req, res) {
 	res.render("cms");
 });
+
 
 router.get('/logout', function(req, res){
   req.logout();

@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
-    debugger;
+    // debugger;
     event.preventDefault();
     // Wont submit the post if we are missing a body, title, or author
     if (!titleInput.val().trim() || !bodyInput.val().trim() || !authorSelect.val()) {
@@ -36,7 +36,7 @@ $(document).ready(function() {
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
-      debugger;
+      // debugger;
       newPlace.id = postId;
       updatePost(newPlace);
     }
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(place) {
-    debugger;
+    // debugger;
     $.post("/api/places", place, function() {
       window.location.href = "/";
     });
@@ -55,13 +55,13 @@ $(document).ready(function() {
 
   // A function to get Authors and then render our list of Authors
   function getCategories() {
-    debugger;
+    // debugger;
     $.get("/api/categories", renderCategoryList);
   }
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first
   function renderCategoryList(data) {
-    debugger;
+    // debugger;
     
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {

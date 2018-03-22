@@ -3,7 +3,7 @@
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 #welcomeBackground {
-	background-image: url('../../../images/Welcome2.png');
+	background-image: url('/assets/images/Welcome4.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -20,36 +20,39 @@
 }
 
 #tagNameBox {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	align-content: center;
 	width: 350px;
+	height: 120px;
 	opacity: 0.8;
 	color: white;
 	margin-left: 200px;
 	margin-top: -125px;
 	padding-left: 20px;
 	padding-top: 3px;
-	padding-bottom: 3px;
 	padding-right: 10px;
+}
+
+#tagName {
+	font-family: 'Ubuntu', sans-serif, 'regular';
 }
 
 #tagSubtext {
 	text-align: right;
 	padding-right: 10px;
+	font-family: 'Ubuntu', sans-serif, 'regular italic';
 }
 
 #welcomeInquiryBox {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	padding-right: 5px;
 	padding-left: 20px;
 	padding-top: 5px;
 	padding-bottom: 20px;
 	margin: auto;
-	margin-top: 200px;
+	margin-top: 50px;
 	width: 500px;
 	opacity: 0.8;
 	color: white;
@@ -60,14 +63,17 @@
 	margin: auto;
 }
 
+#welcomeInquiry {
+	font-family: 'Ubuntu', sans-serif, 'regular italic'
+}
+
 #citySearchField {
 	width: 95%;
 	margin: auto;
 }
 
 #registrationForm {
-	outline-style: solid;
-	outline-width: 3px;
+	border-radius: 10px;
 	background-color: black;
 	padding-right: 5px;
 	padding-left: 20px;
@@ -121,6 +127,8 @@
 
 #navbarName {
 	text-align: center;
+	font-family: 'Concert One', cursive;
+	color: white;
 }
 
 #navbarNameBox {
@@ -145,10 +153,25 @@
 #navbarBoxText {
 	text-align: center;
 
-/* footer */
+	font-family: 'Shrikhand', cursive;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!! */
+/* ! PROFILE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!! */
+
+#profileReviewBox {
+	
+}
+
+
+
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! FOOTER STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
 
 footer {
-	position: absolute;
 	left: 0;
 	bottom: 0;
 	background: #CCC;
@@ -157,9 +180,33 @@ footer {
 	width: 100%;
 }
 
-/* login page */
+/* !!!!!!!!!!!!!!!!!!! */
+/* ! LOG IN STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!! */
+
+
 .logInForm {
-	width: 60%;
+	width: 100%;
 	margin: 0 auto;
 
 }
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! HOMEPAGE BOOTSTRAP STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.bg { 
+	background-image: url('../../../public/assets/images/memphis-colorful.png');
+	background-size: cover;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+} 
+
+.categoryBox {
+	background: black;
+	color: white;
+} 
+
+
