@@ -28,10 +28,11 @@ router.get("/user/:username/home", function(req, res) {
 	  var hbsObject = {
 	  	login: true,
 	  	title: title,
-	    userDb: userInfo
+	    userDb: userInfo.dataValues,
+	    userPostDb: userInfo
 	  };
 
-	  return res.render("profile", hbsObject);
+	  return res.render("profilePage", hbsObject);
 	});
 });
 
