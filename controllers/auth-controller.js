@@ -95,6 +95,7 @@ router.get("/api/posts", function(req, res) {
 
 router.post("/api/posts", function(req, res) {
   var userId = req.user.dataValues.id;
+  console.log(req.body);
 
   var obj = {
     userId: userId,
