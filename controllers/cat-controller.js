@@ -9,11 +9,11 @@ var router = express.Router();
 
 // When user logins in direct them to profile page
 // Profile page display recents posts and bio information grabbed in sign up
-router.get("/category/:category_name", function(req, res) {
+router.get("/category/:categoryId", function(req, res) {
 	var category_name = req.category.category_name;
 	db.users.findAll({
 		where: {
-			category_name: categoryId
+			category_name: category_name
 		},
 	  	include: [db.posts]
 	})
@@ -23,7 +23,7 @@ router.get("/category/:category_name", function(req, res) {
 	    categoryId: categoryInfo
 	  };
 
-	  return res.render("profile", hbsObject);
+	  return res.render("categoryPage", hbsObject);
 	});
 });
 

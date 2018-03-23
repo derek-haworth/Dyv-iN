@@ -9,12 +9,12 @@ var router = express.Router();
 
 // When user logins in direct them to profile page
 // Profile page display recents posts and bio information grabbed in sign up
-router.get("/place/:name", function(req, res) {
+router.get("/place/:placeId", function(req, res) {
 	var name = req.place.name;
 	var address = req.place.address;
 	db.users.findOne({
 		where: {
-			name: placeId
+			name: name
 		},
 	  	include: [db.posts]
 	})
