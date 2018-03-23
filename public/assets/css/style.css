@@ -3,7 +3,7 @@
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 #welcomeBackground {
-	/* background-image: url('/assets/images/Welcome4.png'); */
+	background-image: url('/assets/images/Welcome4.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -196,7 +196,7 @@ footer {
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .bg { 
-	background-image: url('../../../public/assets/images/memphis-colorful.png');
+	background-image: url('assets/images/memphis-colorful.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -215,6 +215,10 @@ footer {
 /* ! ADMIN PAGE STYLINGS ! */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+
+.table-wrapper {
+	background: #fff;
+}
 .table-title {        
 	background: #435d7d;
 	color: #fff;
