@@ -5,11 +5,10 @@
 		<div class="card-body">
 			<h5 class="card-title">{{place.name}}</h5>
 			<p>{{place.address}}</p>
-			{{#each place.posts}}
-				<p class="card-text">{{this.title}}</p>
-				<p class="card-text">{{this.body}}</p>
-			{{/each}}
 		</div>
+	</div>
+	<div class="reviews">
+		{{> establishmentReview}}
 	</div>
 </div>
 
