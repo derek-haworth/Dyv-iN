@@ -23,7 +23,6 @@ $(document).ready(function() {
       };
 
         submitPost(newPost);
-      }
     }
   
     function submitPost(post) {

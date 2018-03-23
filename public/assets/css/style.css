@@ -197,7 +197,7 @@ footer {
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .bg { 
-	background-image: url('assets/images/memphis-colorful.png');
+	background-image: url('/assets/images/memphis-colorful.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
