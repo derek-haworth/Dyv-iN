@@ -11,34 +11,29 @@
 	</footer>
 
 	<!--Login Modal -->
-		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
+		<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+		  <div class="modal-dialog modal-login">
 		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title">Login</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <form class="logInForm" action="login" method="POST">
-		      	<div class="modal-body">
-			            <div class="form-group">
-			                <label for="username">Username</label>
-			                <input type="text" class="form-control" name="username" placeholder="">
-			            </div>
-			            <div class="form-group">
-			                <label for="password">Password</label>
-			                <input type="password" class="form-control" name="password" placeholder="">
-			            </div>
-				    <div class="signUp">
-				        <p>Not a Dyver yet?</p>
-				        <a class="nav-link" href="/signup">SignUp</a>
-				    </div>
+		    	<div class="modal-header">
+		       		<h5 class="modal-title">Login</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
 		      	</div>
-			    <div class="modal-footer">
-			      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-			      <button type="submit" class="btn btn-primary">Submit</button>
-			    </div>
+		      	<div class="modal-body">
+		      		<form class="logInForm" action="login" method="POST">
+			            <div class="form-group">
+			                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+			            </div>
+			            <div class="form-group">
+			                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+			            </div>
+			            <div class="form-group">
+			      			<button type="submit" class="btn btn-primary btn-block">Login</button>
+			      		</div>
+					</form>
+					<p class="float-left">Not a Dyver yet? <a href="/signup">SignUp</a></p>
+		      	</div>
 			   </form>
 		    </div>
 		  </div>
@@ -49,7 +44,6 @@
   	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<script src="/assets/js/logic.js"></script>
-  	<script src="/assets/js/city.js"></script>
 
   
 </body>

@@ -1,7 +1,6 @@
 // Node Dependencies
 var express = require('express');
 var router = express.Router();
-
 var db = require('../models'); 
 
 // ----------------------------------------------------
@@ -16,6 +15,7 @@ router.get("/admin", function(req, res) {
     }
   }).then(function(dbPlaces) {
     var hbsObj = {
+      title: "Admin",
       places: dbPlaces
     };
     res.render("cms", hbsObj);
@@ -26,14 +26,10 @@ router.get("/admin", function(req, res) {
 // Create a new User
 
 router.post("/admin", function(req, res) {
-  console.log('============');
-  console.log('ADMIN');
-  console.log(req);
   // Category
   var title = {
     category_name: req.body.category_name
   };
-
   db.categories.create(title).then(function (err) {
     res.redirect("/admin");
   });
@@ -42,7 +38,6 @@ router.post("/admin", function(req, res) {
   var city = {
     cityName: req.body.cityName
   };
-
   db.cities.create(city).then(function (err) {
     res.redirect("/admin");
   });
@@ -53,7 +48,6 @@ router.post("/admin", function(req, res) {
     address: req.body.address,
     review: req.body.review
   }
-
   db.places.create(place).then(function (err) {
     res.redirect("/admin");
   });
@@ -115,10 +109,6 @@ router.post("/api/posts", function(req, res) {
 
 
 router.put("/places/update", function(req, res) {
-  console.log('==========');
-  console.log('UPDATE PLACE');
-  console.log('==========');
-  console.log(req.body);
   db.places.update({
     viewable: true
   }, {
@@ -127,13 +117,21 @@ router.put("/places/update", function(req, res) {
     }
   })
   .then(function(data) {
-    console.log('==========');
-    console.log('DATA');
-    console.log('==========');
-    console.log(data);
     res.redirect("/admin");
   });
 });
+
+router.delete("/places/deny", function(req, res) {
+  db.places.destroy({
+    where: {
+      id: req.body.placeId
+    }
+  })
+  .then(function(data) {
+    res.redirect("/admin");
+  });
+});
+
 
 // Export routes
 module.exports = router;

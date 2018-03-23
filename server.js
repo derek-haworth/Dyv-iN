@@ -51,7 +51,7 @@ app.engine("handlebars", exphbs({
 		    for(var i = 0; i < max && i < ary.length; ++i)
 		        result.push(options.fn(ary[i]));
 		    return result.join('');
-		}
+		  }
     }
   })
 );

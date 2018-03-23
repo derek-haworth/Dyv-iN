@@ -18,7 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     Place.associate = function(models) {
 
       	Place.belongsTo(models.categories, {
-
         	foreignKey: {
             	allowNull: false
             }

@@ -101,4 +101,28 @@ router.post("/signup", function(req, res) {
 });
 
 
+// GET route for getting all of the posts
+router.get("/test/places", function(req, res) {
+    db.places.findAll({
+      include: [db.categories, db.cities]
+    },
+    {
+    	where: {
+      		cityId: '2'
+    	}
+    }
+    ).then(function(dbPlace) {
+    	console.log('=========');
+    	console.log('FIND PLACES FOR ME');
+    	console.log('=========');
+    	console.log(dbPlace);
+    	var hbsObject = {
+			title: "DEREK TEST",
+			place: dbPlace
+		};
+      	res.render("landing", hbsObject);
+    });
+});
+
+
 module.exports = router;

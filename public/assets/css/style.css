@@ -207,6 +207,19 @@ footer {
 .categoryBox {
 	background: black;
 	color: white;
-} 
+}
+
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! ADMIN PAGE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.table-title {        
+	background: #435d7d;
+	color: #fff;
+	padding: 15px 30px;
+	border-radius: 3px 3px 0 0;
+}
 
 
