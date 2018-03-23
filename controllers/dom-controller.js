@@ -13,7 +13,8 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		//res.redirect("/user/" + req.user.username + "/home");
+		res.render("landing");
 	} else {
 		db.categories.findAll({
 		  include: [db.places],
