@@ -1,20 +1,22 @@
 {{#if login}}
-	<nav class="navbar navbar-expand-lg" id="navbar">
-		<a href="/"><img id="navbarLogo" src="/assets/images/Dyv-iN-logo.png"></a>
-		<div id="navbarNameBox">
-			<a class="navbar-brand" href="/"><h1 id="navbarName">DYV-iN</h1></a>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Dyv-iN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link profile" href="/">Profile</a>
-					<a class="nav-link" href="/logout">LogOut</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/user/ + req.user.username + /home">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">LogIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 {{/if}}
