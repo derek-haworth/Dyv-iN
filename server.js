@@ -63,10 +63,14 @@ app.set("view engine", "handlebars");
 var domRouter = require('./controllers/dom-controller.js');
 var authRouter = require('./controllers/auth-controller.js');
 var profileRouter = require('./controllers/profile-controller.js');
+var categoryRouter = require('./controllers/category-controller.js');
+var placeRouter = require('./controllers/places-controller.js');
 
 app.use('/', domRouter);
 app.use('/', authRouter);
 app.use('/', profileRouter);
+app.use('/', categoryRouter);
+app.use('/', placeRouter);
 
 //Sync models
 db.sequelize.sync({ force: false }).then(function() {
