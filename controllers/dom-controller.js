@@ -45,8 +45,7 @@ router.get("/login", function(req, res) {
 		res.redirect("/user/" + req.user.username + "/profile");
 	} else {
 		var hbsObj = {
-			title: "Login",
-			login: true
+			title: "Login"
 		};
 		res.render("login", hbsObj);
 	}
@@ -54,7 +53,7 @@ router.get("/login", function(req, res) {
 
 router.get("/signup", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/login")
+		res.redirect("/login");
 	} else {
 		var message = req.session.message;
 		var hbsObj = {
