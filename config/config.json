@@ -1,8 +1,10 @@
 {
   "development": {
     "username": "root",
+
     "password": "frhnbr1215",
     "database": "project_two4_db",
+
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
