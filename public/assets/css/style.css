@@ -2,10 +2,15 @@
 /* ! WELCOME & REGISTRATION PAGE STYLINGS ! */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+
+body {
+	background: #F5F5DC;
+}
 /* landing page */
 .landing > section {
 	margin: 30px 0;
 }
+
 .features {
 	padding-top: 7rem;
 	padding-bottom: 7rem;
@@ -49,11 +54,11 @@
 	background-color: black;
 	align-content: center;
 	width: 500px;
-	height: 120px;
+	height: 80px;
 	opacity: 0.8;
 	color: white;
 	margin-left: 200px;
-	margin-top: -120px;
+	margin-top: -80px;
 	padding-left: 20px;
 	padding-top: 10px;
 	padding-right: 10px;
@@ -62,11 +67,13 @@
 
 #tagName {
 	font-family: 'Ubuntu', sans-serif, 'regular';
+	margin-top: -5px;
 }
 
 #tagSubtext {
 	text-align: right;
 	padding-right: 10px;
+	padding-top: -40px;
 	font-family: 'Ubuntu', sans-serif, 'italic';
 }
 
@@ -80,6 +87,7 @@ header.masthead {
 	background-size: cover;
 	padding-top: 8rem;
 	padding-bottom: 8rem;
+	height: 600px;
   }
 
 #welcomeInquiryBox {
@@ -91,7 +99,7 @@ header.masthead {
 	padding-bottom: 20px;
 	margin: auto;
 	margin-top: 50px;
-	width: 500px;
+	width: 300px;
 	opacity: 0.8;
 	color: white;
 	align-content: center;
@@ -102,11 +110,12 @@ header.masthead {
 }
 
 #welcomeInquiry {
-	font-family: 'Ubuntu', sans-serif, 'regular italic'
+	margin-top: 40px;
+	font-family: 'Ubuntu', sans-serif, 'regular italic';
 }
 
 #citySearch {
-	width: 95%;
+	width: 85%;
 	margin: auto;
 }
 
@@ -138,6 +147,11 @@ header.masthead {
 
 #registrationSubmit {
 	text-align: center;
+	margin-top: 20px;
+}
+
+.welcomeMessage {
+	margin-top: 55px;
 }
 
 #registrationField {
@@ -149,12 +163,12 @@ header.masthead {
 /* ! NAVBAR STYLINGS ! */
 /* !!!!!!!!!!!!!!!!!!! */
 
-#navbar {
-	width: 102%;
-	height: 60px;
-	margin-left: -10px;
+.container-fluid {
 	margin-top: -10px;
-	background-color: #bf62f6;
+}
+
+.navbar {
+	height: 100px;
 }
 
 #navbarLogo {
@@ -190,7 +204,6 @@ header.masthead {
 
 #navbarBoxText {
 	text-align: center;
-
 	font-family: 'Shrikhand', cursive;
 }
 
@@ -199,15 +212,9 @@ header.masthead {
 /* ! PROFILE STYLINGS ! */
 /* !!!!!!!!!!!!!!!!!!!! */
 
-#profileReviewBox {
-	
-}
-
 .profile-img {
 	max-height: 200px;
 }
-
-
 
 /* !!!!!!!!!!!!!!!!!!! */
 /* ! FOOTER STYLINGS ! */
@@ -250,6 +257,10 @@ footer {
 	color: white;
 }
 
+.testimonialBox {
+	margin-top: -50px;
+	margin-bottom: -50px;
+}
 
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
