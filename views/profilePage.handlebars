@@ -1,7 +1,11 @@
 <div class="container">
 <div class="row">
 	<div class="col-xl-12 text-center">
-        <img src="https://ih1.redbubble.net/image.135305301.7505/flat,800x800,075,f.jpg" class="img-thumbnail rounded-circle profile-img">
+			{{#if userDb.profilePic}}
+        <img src="{{userDb.profilePic}}" class="img-thumbnail rounded-circle profile-img">
+			{{else}}
+				<img src="https://ih1.redbubble.net/image.135305301.7505/flat,800x800,075,f.jpg" class="img-thumbnail rounded-circle profile-img">
+			{{/if}}
     </div>
 </div>
 

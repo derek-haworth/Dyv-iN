@@ -84,11 +84,16 @@ router.post("/login",
 );
 
 router.post("/signup", function(req, res) {
+	console.log('===========');
+	console.log('SIGN UP REQ');
+	console.log('===========');
+	console.log(req);
 	var user = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
+		profilePic: req.body.profilePic,
   		username: req.body.username,
-  		password: bcrypt.hashSync(req.body.password, saltRounds) 
+		password: bcrypt.hashSync(req.body.password, saltRounds)
   	};
 
   	// if a new user created, redirect them to login page NOT modal
