@@ -17,18 +17,19 @@
   {{else}}
     <body id="profileBody">
       {{>navbar}}
-      <div class="welcome-header">
-          <a href="/"><img id="cornerLogo" src="/assets/images/Dyv-iN-logo.png"></a>
-        
-          <div id="tagNameBox">
-            <h1 id="tagName">Dyv-iN...</h1>
-          
-            <div id="tagBox">
-              <h3 id="tagSubtext">find the spots where locals flock.</h3>
-            </div>
+    <div class="bg"> 
+        <nav class="navbar navbar-light bg-light static-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img id="cornerLogo" src="/assets/images/Dyv-iN-logo.png">
+             <div id="tagNameBox">
+                <h1 id="tagName">Dyv-iN...</h1>
+                <div id="tagBox">
+                  <h3 id="tagSubtext">find the spots where locals flock.</h3>
+                </div>
+              </div>
+            </a>
+            <a class="btn btn-primary nav-link login" data-toggle="modal" data-target="#loginModal">Log In</a>
           </div>
-          <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login In</a>
-      </div>
-  {{/if}}
-<div class="bg"> 
-  <div class="container">
+        </nav>
+   {{/if}} 
+    

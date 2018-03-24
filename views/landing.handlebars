@@ -9,7 +9,7 @@
 	</div>
 	
 	{{!-- City Search --}}
-	<div class="row">
+	{{!-- <div class="row">
 		<div class="col-md-12">
 			<div id="welcomeInquiryBox">
 				<h2 id="welcomeInquiry">Where are we looking into today...</h2>
@@ -21,6 +21,119 @@
 				</form> 
 			</div>
 		</div>
-	</div>
+	</div> --}}
+
+  <div class="landing">
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">Where are we looking into today...</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form id="citySearchForm" method="GET" action="/categories">
+					<div class="form-group">
+			 			<input id="citySearch" type="text" name="citySearch" value="Chicago">
+			  			<div id="registrationSubmit"><input type="submit" value="Submit"></div>
+			  		</div>
+				</form> 
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Grid -->
+    <section class="bg-light text-center features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <h3>About</h3>
+              <p class="lead mb-0">Dyv-iN to the next city you visit by going to the places the locals go!</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <h3>Who We Are</h3>
+              <p class="lead mb-0">We're just some devs looking for a good place to eat, without the crowdedness of tourists.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+              <h3>Easy to Use</h3>
+              <p class="lead mb-0">Type in the city you're visiting and go!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Showcases -->
+    <section class="showcase">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/assets/images/Welcome1.png');"></div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <h2>Dyv-iN</h2>
+            <p class="lead mb-0">Dyv-iN allows you to post reviews for establishments you feel are top notch and off the beaten path. </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 text-white showcase-img" style="background-image: url('/assets/images/Welcome6.png');"></div>
+          <div class="col-lg-6 my-auto showcase-text">
+            <h2>Be a cooler tourist</h2>
+            <p class="lead mb-0">Every city has those places that everyone feels like they need to go, but that doesn't mean you have to! Check out Dyv-iN to get some ideas about the better places to go.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/assets/images/Welcome9.png');"></div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <h2>Let us know!</h2>
+            <p class="lead mb-0">Where are the best places to go in your city? Let us know the best bars, restaurants, and museums by signing up and writing posts!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="features testimonials text-center bg-light">
+      <div class="container">
+        <h2 class="mb-5">What people are saying...</h2>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/assets/images/Fauna.jpg" alt="">
+              <h5>Fauna</h5>
+              <p class="font-weight-light mb-0">"There are so many places to explore in a big city. Take a risk!"</p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/assets/images/Derek.jpg" alt="">
+              <h5>Derek</h5>
+              <p class="font-weight-light mb-0">"I love Chicago. And I love food. It's a good combo."</p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/assets/images/Noah.JPG" alt="">
+              <h5>Noah</h5>
+              <p class="font-weight-light mb-0">"This website led me to a great museum I've never even heard of. Thanks, Dyv-iN!"</p>
+            </div>
+          </div>
+		  <div class="col-lg-3">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/assets/images/John.jpg" alt="">
+              <h5>John</h5>
+              <p class="font-weight-light mb-0">"Is there Filipino food around here?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
 
+  

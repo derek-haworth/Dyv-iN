@@ -2,6 +2,27 @@
 /* ! WELCOME & REGISTRATION PAGE STYLINGS ! */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+
+
+/* landing page */
+.landing > section {
+	margin: 30px 0;
+}
+.features {
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+}
+
+.showcase-img {
+	height: 300px;
+}
+
+.login {
+	background-color: white;
+	color: purple;
+	border-color: purple;
+}
+
 #welcomeBackground {
 	background-image: url('/assets/images/Welcome4.png');
 	background-size: cover;
@@ -44,6 +65,18 @@
 	padding-right: 10px;
 	font-family: 'Ubuntu', sans-serif, 'italic';
 }
+
+header.masthead {
+	position: relative;
+	background-color: #343a40;
+	background-image: url('/assets/images/Welcome4.png');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding-top: 8rem;
+	padding-bottom: 8rem;
+  }
 
 #welcomeInquiryBox {
 	border-radius: 10px;
@@ -180,7 +213,7 @@ footer {
 	left: 0;
 	bottom: 0;
 	background: #CCC;
-	padding: 40px;
+	padding: 20px;
 	text-align: center;
 	width: 100%;
 }
@@ -201,7 +234,6 @@ footer {
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .bg { 
-	background-image: url('/assets/images/memphis-colorful.png');
 	background-size: cover;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -231,6 +263,7 @@ footer {
 	border-radius: 3px 3px 0 0;
 }
 
+/* footer */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 /* ! PLACE PAGE STYLINGS ! */
