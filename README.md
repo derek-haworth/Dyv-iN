@@ -1,5 +1,8 @@
 # Dyv-iN
 
+## Live Link
+[Dyn-iN](https://dyv-in.herokuapp.com/)
+
 ### About the project
 
 Dyn-iN is project created by [Noah Strayve](https://github.com/noahstrayve), [Fauna Robinos](https://github.com/faunarr), [John Maravilla](https://github.com/ajmaravilla), and [Derek Haworth](https://github.com/derek-haworth).
