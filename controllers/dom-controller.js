@@ -13,7 +13,12 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		// res.redirect("/user/" + req.user.username + "/profile");
+		var hbsObject = {
+			title: "Logged In",
+			login: true
+		}
+		res.render("landing", hbsObject);
 	} else {
 		db.categories.findAll({
 		  include: [db.places],
@@ -36,7 +41,7 @@ router.get("/", function(req, res) {
 
 router.get("/login", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		res.redirect("/user/" + req.user.username + "/profile");
 	} else {
 		var hbsObj = {
 			title: "Login",
