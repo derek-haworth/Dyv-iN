@@ -1,5 +1,5 @@
 {
-  "name": "myphace",
+  "name": "Dyv-iN",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/derek-haworth/myphace.git"
+    "url": "git+https://github.com/derek-haworth/dyv-in.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/derek-haworth/myphace/issues"
+    "url": "https://github.com/derek-haworth/dyv-in/issues"
   },
-  "homepage": "https://github.com/derek-haworth/myphace#readme",
+  "homepage": "https://github.com/derek-haworth/dyv-in#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
