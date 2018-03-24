@@ -15,9 +15,10 @@ router.get("/place/:placeId", function(req, res) {
 	.then(function(placeInfo) {
 		console.log(placeInfo);
 		var hbsObject = {
-			// login: true,
+			login: true,
 			title: placeInfo.name,
 			place: placeInfo
+
 		};
 
 	  return res.render("establishmentPage", hbsObject);
