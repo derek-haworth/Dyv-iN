@@ -13,7 +13,13 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		// res.redirect("/user/" + req.user.username + "/profile");
+		var hbsObject = {
+			title: "Logged In",
+			login: true,
+			title: "Home"
+		}
+		res.render("landing", hbsObject);
 	} else {
 		db.categories.findAll({
 		  include: [db.places],
@@ -36,11 +42,10 @@ router.get("/", function(req, res) {
 
 router.get("/login", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		res.redirect("/user/" + req.user.username + "/profile");
 	} else {
 		var hbsObj = {
-			title: "Login",
-			login: true
+			title: "Login"
 		};
 		res.render("login", hbsObj);
 	}
@@ -48,7 +53,7 @@ router.get("/login", function(req, res) {
 
 router.get("/signup", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/login")
+		res.redirect("/login");
 	} else {
 		var message = req.session.message;
 		var hbsObj = {
@@ -79,11 +84,16 @@ router.post("/login",
 );
 
 router.post("/signup", function(req, res) {
+	console.log('===========');
+	console.log('SIGN UP REQ');
+	console.log('===========');
+	console.log(req);
 	var user = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
+		profilePic: req.body.profilePic,
   		username: req.body.username,
-  		password: bcrypt.hashSync(req.body.password, saltRounds) 
+		password: bcrypt.hashSync(req.body.password, saltRounds)
   	};
 
   	// if a new user created, redirect them to login page NOT modal

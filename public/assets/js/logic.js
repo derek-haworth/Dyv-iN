@@ -75,4 +75,12 @@ $(document).ready(function() {
   adventure.getCategories();
   adventure.getCities();
 
+
+  // Removes duplicat Posts
+  var reviews = $('.reviewHolder');
+  var reviewEle = reviews.children();
+  var splicedReviews = reviewEle.splice(reviewEle.length/2);
+
+  reviews.html(splicedReviews);
+
 });

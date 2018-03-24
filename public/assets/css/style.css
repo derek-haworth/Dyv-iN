@@ -205,6 +205,10 @@ header.masthead {
 	
 }
 
+.profile-img {
+	max-height: 300px;
+}
+
 
 
 /* !!!!!!!!!!!!!!!!!!! */
@@ -267,3 +271,10 @@ footer {
 
 /* footer */
 
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ! PLACE PAGE STYLINGS ! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.card-img-top {
+	max-height: 400px;
+}
