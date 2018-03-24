@@ -23,6 +23,12 @@
 	border-color: purple;
 }
 
+/* .ourPhoto {
+	height: 200px;
+	max-width: 277px;
+} */
+
+
 #welcomeBackground {
 	background-image: url('/assets/images/Welcome4.png');
 	background-size: cover;
