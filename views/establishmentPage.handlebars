@@ -1,41 +1,44 @@
 <div class="container">
-{{#if place.viewable}}
-	<div class="row">
-		<div class="card mb-3 mt-3">
-			<img class="card-img-top" src="/assets/images/Welcome3.png" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">{{place.name}}</h5>
-				<p>{{place.address}}</p>
+	{{#if place.viewable}}
+		<div class="row">
+			<div class="col-lg-12 card mb-3 mt-3">
+				<img class="card-img-top" src="/assets/images/Welcome3.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">{{place.name}}</h5>
+					<p>{{place.address}}</p>
+				</div>
 			</div>
 		</div>
-		<div class="reviews">
-			{{> establishmentReview}}
+		<div class="row">
+			<div class="col-lg-8 review">
+				{{#each place.posts}}
+					{{> establishmentReview}}
+				{{/each}}
+			</div>
+			<div class="col-lg-4">
+				{{> photoBox}}
+				<form id="posts">
+				  <div class="form-group">
+				    <label for="title">Title</label>
+				    <input placeholder="Post Title" type="text" class="form-control" id="title">
+				    <label for="body">Body</label>
+				    <textarea placeholder="Body" class="form-control" rows="10" id="postBody"></textarea>
+				    <button type="submit" class="btn btn-success submit">Submit</button>
+				  </div>
+				</form>
+			</div>
 		</div>
-	</div>
-	{{#if login}}
-		<form id="posts">
-		  <div class="form-group">
-		    <label for="title">Title</label>
-		    <input placeholder="Post Title" type="text" class="form-control" id="title">
-		    <label for="body">Body</label>
-		    <textarea placeholder="Body" class="form-control" rows="10" id="postBody"></textarea>
-		    <button type="submit" class="btn btn-success submit">Submit</button>
-		  </div>
-		</form>
+		<div class="row">
+			<div class="col-lg-12">
+				<p><a href="/login">Log in</a> or <a href="/signup">Sign up</a> to leave a review.</p>
+			</div>
+		</div>
 	{{else}}
-		<p><a href="/login">Log in</a> or <a href="/signup">Sign up</a> to leave a review.</p>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>This place has not been approved yet.</h1>
+				<p><a href="/login">Log in</a> or <a href="/signup">Sign up</a> to leave a review.</p>
+			</div>
+		</div>
 	{{/if}}
-{{else}}
-	<h1>This place has not been approved yet.</h1>
-{{/if}}
-
-{{!-- <div class="row">
-	<div class="col-lg-8 reviewHolder">
-		{{> profileReview}}  
-	</div>
-	<div class="col-lg-4">
-		{{> photoBox}}
-	</div>
-</div>
- --}}
 </div>

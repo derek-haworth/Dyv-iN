@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Dyv-iN | {{title}}</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="shortcut icon" href="/favicon.ico">
+  <head>
+    
+      <title>Dyv-iN | {{title}}</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+      <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="shortcut icon" href="/favicon.ico">
 
-</head>
+  </head>
+
   {{#if login}}
     <body>
       {{>navbar}}
@@ -18,18 +20,18 @@
     <body id="profileBody">
       {{>navbar}}
     <div class="bg"> 
-        <nav class="navbar navbar-light bg-light static-top">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img id="cornerLogo" src="/assets/images/Dyv-iN-logo.png">
-             <div id="tagNameBox">
-                <h1 id="tagName">Dyv-iN...</h1>
-                <div id="tagBox">
-                  <h3 id="tagSubtext">find the spots where locals flock.</h3>
-                </div>
+      <nav class="navbar navbar-light bg-light static-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img id="cornerLogo" src="/assets/images/Dyv-iN-logo.png">
+            <div id="tagNameBox">
+              <h1 id="tagName">Dyv-iN...</h1>
+              <div id="tagBox">
+                <h3 id="tagSubtext">find the spots where locals flock.</h3>
               </div>
-            </a>
-            <a class="btn btn-primary nav-link login" data-toggle="modal" data-target="#loginModal">Log In</a>
-          </div>
-        </nav>
-   {{/if}} 
+            </div>
+          </a>
+          <a class="btn btn-primary nav-link login" data-toggle="modal" data-target="#loginModal">Log In</a>
+        </div>
+      </nav>
+    {{/if}} 
     

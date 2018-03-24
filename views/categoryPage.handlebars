@@ -1,76 +1,43 @@
 <div class="container">
-<div class="row cityName">
-  <h1>Chicago</h1>
-</div>
 
-<div class="row">
-  <div class="col-lg-3 mt-3 ml-2 categoryBox">
-    <h2 class="category">{{places.type}}</h2>
-  </div>
-</div>
-
-{{#each category}}
-  <div class="row">
+  <div class="row cityName">
     <div class="col-md-12">
-      <h2>{{this.category_name}}</h2>
+      <h1>Chicago</h1>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-3 mt-3 ml-2 categoryBox">
+      <h2 class="category">{{places.type}}</h2>
+    </div>
+  </div>
+
+  {{#each category}}
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{this.category_name}}</h2>
+      </div>
+    </div>
+    <div class="row postPreviews">
+      {{#if this.places}}
+        {{#eachUpTo this.places 8}}
+          <div class="col-md-3 text-center">
+            {{> post}}
+          </div>
+        {{/eachUpTo}}
+      {{/if}}
+    </div>
+  {{/each}}
+
+
   <div class="row postPreviews">
-    {{#if this.places}}
-      {{#eachUpTo this.places 8}}
-        <div class="col-md-3 text-center">
-          {{> post}}
-        </div>
-      {{/eachUpTo}}
+    {{#if place}}
+      {{#each place}}
+         <div class="col-md-3 text-center">
+           {{> post}}
+         </div>
+      {{/each}}
     {{/if}}
   </div>
-{{/each}}
 
-
-<div class="row postPreviews">
-  {{#if place}}
-    {{#each place}}
-       <div class="col-md-3 text-center">
-         {{> post}}
-       </div>
-    {{/each}}
-  {{/if}}
-</div>
-
-{{!-- <div class="row">
-  <div class="col-sm-8">
-
-    <div class="tab-content">
-      <div id="home" class="tab-pane in active">
-        {{#each restaurants}}
-        <div id="{{this.place_id}}" class="row">
-          <div class="col-sm-4">
-            {{#each this.photos}}
-            <img class="img-thumbnail" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{this.photo_reference}}&key=AIzaSyDAWpS82SOzjGchLjXznjhyCoVC8zxQw_s">
-            {{/each}}
-          </div>
-          <div class="col-sm-6">
-            <h4> {{this.name}}</h4>
-            <input type="hidden" name="place_name" value="{{this.name}}">
-            <p>Address: {{this.formatted_address}}</p>
-            <input type="hidden" name="place_address" 
-            value="{{this.formatted_address}}">
-            {{#each this.photos}}
-            <input type="hidden" name="photo_ref" 
-            value="{{this.photo_reference}}">
-            {{/each}}
-          </div>
-          <div class="col-sm-2 button-add">
-            <button type="submit" data="{{this.place_id}}" class="btn btn-primary">Add</button>
-          </div>
-          <div class="col-sm-12"><hr></div>
-        </div>  
-        {{/each}} 
-      </div>
-  </div>
-
-</div> 
-
-
- --}}
 </div>

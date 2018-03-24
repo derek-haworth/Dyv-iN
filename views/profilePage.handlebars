@@ -10,7 +10,7 @@
 </div>
 
 <div class="row">
-	<div class="col-xl-12 text-center mt-4">
+	<div class="col-xl-12 text-center mt-3 mb-3">
 		<h1>{{userDb.firstName}} {{userDb.lastName}}</h1>
 	</div>
 </div>
@@ -20,8 +20,7 @@
 		{{#each userPostDb}}
 			{{#if this.posts}}
 				{{#each this.posts}}
-						{{> profileReview}}
-					</div>
+					{{> profileReview}}
 				{{/each}}
 			{{/if}}
 		{{/each}}
