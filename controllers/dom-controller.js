@@ -16,7 +16,8 @@ router.get("/", function(req, res) {
 		// res.redirect("/user/" + req.user.username + "/profile");
 		var hbsObject = {
 			title: "Logged In",
-			login: true
+			login: true,
+			title: "Home"
 		}
 		res.render("landing", hbsObject);
 	} else {

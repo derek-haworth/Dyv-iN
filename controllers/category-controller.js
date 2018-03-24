@@ -26,9 +26,9 @@ router.get("/categories", function(req, res) {
     	console.log('=========');
     	console.log(dbPlace);
     	var hbsObject = {
-			// title: "DEREK TEST",
-			place: dbPlace
-		};
+			 title: dbPlace.category_name,
+			 place: dbPlace
+		  };
       	res.render("categoryPage", hbsObject);
     });
 });
@@ -44,7 +44,7 @@ router.get("/categories/all", function(req, res) {
     })
     .then(function(dbCategory) {
       var hbsObject = {
-        title: "All Categories",
+        title: "Categories",
         category: dbCategory
       };
       return res.render("categoryPage", hbsObject);

@@ -11,16 +11,19 @@
 			{{> establishmentReview}}
 		</div>
 	</div>
-
-	<form id="posts">
-	  <div class="form-group">
-	    <label for="title">Title</label>
-	    <input placeholder="Post Title" type="text" class="form-control" id="title">
-	    <label for="body">Body</label>
-	    <textarea placeholder="Body" class="form-control" rows="10" id="postBody"></textarea>
-	    <button type="submit" class="btn btn-success submit">Submit</button>
-	  </div>
-	</form>
+	{{#if login}}
+		<form id="posts">
+		  <div class="form-group">
+		    <label for="title">Title</label>
+		    <input placeholder="Post Title" type="text" class="form-control" id="title">
+		    <label for="body">Body</label>
+		    <textarea placeholder="Body" class="form-control" rows="10" id="postBody"></textarea>
+		    <button type="submit" class="btn btn-success submit">Submit</button>
+		  </div>
+		</form>
+	{{else}}
+		<p><a href="/login">Log in</a> or <a href="/signup">Sign up</a> to leave a review.</p>
+	{{/if}}
 {{else}}
 	<h1>This place has not been approved yet.</h1>
 {{/if}}
