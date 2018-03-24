@@ -13,8 +13,18 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
+<<<<<<< HEAD
 		//res.redirect("/user/" + req.user.username + "/home");
 		res.render("landing");
+=======
+		// res.redirect("/user/" + req.user.username + "/profile");
+		var hbsObject = {
+			title: "Logged In",
+			login: true,
+			title: "Home"
+		}
+		res.render("landing", hbsObject);
+>>>>>>> 6f3aa9ab5ff8dc4ebcf8e825ae5b5cba353142e0
 	} else {
 		db.categories.findAll({
 		  include: [db.places],
@@ -37,11 +47,10 @@ router.get("/", function(req, res) {
 
 router.get("/login", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/user/" + req.user.username + "/home");
+		res.redirect("/user/" + req.user.username + "/profile");
 	} else {
 		var hbsObj = {
-			title: "Login",
-			login: true
+			title: "Login"
 		};
 		res.render("login", hbsObj);
 	}
@@ -49,7 +58,7 @@ router.get("/login", function(req, res) {
 
 router.get("/signup", function(req, res) {
 	if (req.isAuthenticated()) {
-		res.redirect("/login")
+		res.redirect("/login");
 	} else {
 		var message = req.session.message;
 		var hbsObj = {
