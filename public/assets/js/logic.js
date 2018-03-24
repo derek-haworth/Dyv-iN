@@ -15,7 +15,7 @@ $(document).ready(function() {
         // error-handling
         return;
       }
-      // Constructing a newPost object to hand to the database
+      // Constructing a newPlace object to hand to the database
       var newPlace = {
         name: placeTitle.val().trim(),
         address: placeAddress.val().trim(),
@@ -35,7 +35,6 @@ $(document).ready(function() {
     },
 
     getCategories: function() {
-      debugger;
       $.get('/api/categories', this.renderList);
     },
 
@@ -76,7 +75,7 @@ $(document).ready(function() {
   adventure.getCities();
 
 
-  // Removes duplicat Posts
+  // Removes duplicate Posts
   var reviews = $('.reviewHolder');
   var reviewEle = reviews.children();
   var splicedReviews = reviewEle.splice(reviewEle.length/2);

@@ -11,9 +11,8 @@ $(document).ready(function() {
 	      // error-handling
 	      return;
 	    }
-	    // Constructing a newPost object to hand to the database
 	    var city = {
-	      name: cityInput.val().trim(),
+	      name: cityInput.val().trim()
 	    };
 	   
 	}

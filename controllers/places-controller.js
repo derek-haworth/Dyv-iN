@@ -5,10 +5,6 @@ var router = express.Router();
 
 
 router.get("/place/:placeId", function(req, res) {
-	console.log('===========');
-	console.log('PLACE ID');
-	console.log('===========');
-	console.log(req.params.placeId);
 	var placeId = req.params.placeId;
 	db.places.findOne({
 		where: {
@@ -19,7 +15,7 @@ router.get("/place/:placeId", function(req, res) {
 	.then(function(placeInfo) {
 		console.log(placeInfo);
 		var hbsObject = {
-			login: true,
+			// login: true,
 			title: placeInfo.name,
 			place: placeInfo
 		};
