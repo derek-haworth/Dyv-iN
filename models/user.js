@@ -20,6 +20,15 @@ module.exports= function(sequelize, DataTypes) {
         }
       }
     },
+    profilePic: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        notEmpty: {
+          msg: 'Photo is required'
+        }
+      }
+    },
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false,

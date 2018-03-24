@@ -13,10 +13,6 @@ var saltRounds = 10;
 // ----------------------------------------------------
 router.get("/", function(req, res) {
 	if (req.isAuthenticated()) {
-<<<<<<< HEAD
-		//res.redirect("/user/" + req.user.username + "/home");
-		res.render("landing");
-=======
 		// res.redirect("/user/" + req.user.username + "/profile");
 		var hbsObject = {
 			title: "Logged In",
@@ -24,7 +20,6 @@ router.get("/", function(req, res) {
 			title: "Home"
 		}
 		res.render("landing", hbsObject);
->>>>>>> 6f3aa9ab5ff8dc4ebcf8e825ae5b5cba353142e0
 	} else {
 		db.categories.findAll({
 		  include: [db.places],
@@ -89,11 +84,16 @@ router.post("/login",
 );
 
 router.post("/signup", function(req, res) {
+	console.log('===========');
+	console.log('SIGN UP REQ');
+	console.log('===========');
+	console.log(req);
 	var user = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
+		profilePic: req.body.profilePic,
   		username: req.body.username,
-  		password: bcrypt.hashSync(req.body.password, saltRounds) 
+		password: bcrypt.hashSync(req.body.password, saltRounds)
   	};
 
   	// if a new user created, redirect them to login page NOT modal
