@@ -45,8 +45,8 @@ body {
 
 #cornerLogo {
 	border-radius: 20px;
-	height: 120px;
-	width: 120px;
+	height: 80px;
+	width: 80px;
 }
 
 #tagNameBox {
@@ -164,11 +164,11 @@ header.masthead {
 /* !!!!!!!!!!!!!!!!!!! */
 
 .container-fluid {
-	margin-top: -10px;
+	margin-top: 0px;
 }
 
 .navbar {
-	height: 100px;
+	height: 110px;
 }
 
 #navbarLogo {
