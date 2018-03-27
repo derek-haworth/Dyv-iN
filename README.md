@@ -1,7 +1,6 @@
 # Dyv-iN
 
-## Live Link
-[Dyn-iN](https://dyv-in.herokuapp.com/)
+## [Live Demo](https://dyv-in.herokuapp.com/)
 
 ### About the project
 
